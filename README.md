@@ -72,9 +72,9 @@ The test users included:
 
 I configured the user accounts with appropriate profile information and assigned Microsoft 365 Business Premium licences where required. This helped me understand the relationship between an Entra ID identity and the Microsoft 365 services provided through licensing.
 
-![Created users](screenshots/02-user-management/02-created-users.jpg)
+![Created users](screenshots/02-user-management/01-entra-all-users.jpg)
 
-![Microsoft 365 licence assignment](screenshots/02-user-management/03-alice-license-assignment.jpg)
+![Microsoft 365 licence assignment](screenshots/02-user-management/03-alice-business-premium-license.jpg)
 
 ---
 
