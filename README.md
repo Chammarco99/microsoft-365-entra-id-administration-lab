@@ -151,3 +151,56 @@ The successful sign-in showed that Multi-Factor Authentication was required and 
 This exercise helped me understand the difference between simply enabling MFA and using Conditional Access to control when additional authentication requirements are applied.
 
 It also demonstrated the importance of testing Conditional Access policies before enforcement to reduce the risk of accidentally locking users or administrators out of an environment.
+
+### 5. Exchange Online Administration
+
+I used the Exchange Admin Center to practise mailbox administration and email access management.
+
+#### IT Support Shared Mailbox
+
+I created an **IT Support** shared mailbox to simulate a central support address that employees could use instead of contacting an individual IT technician.
+
+The shared mailbox used the address:
+
+`support@<tenant>.onmicrosoft.com`
+
+![IT Support shared mailbox](screenshots/06-exchange-online/01-it-support-shared-mailbox.jpg)
+
+---
+
+#### Mailbox Delegation
+
+Charlie Brown was acting as the IT Support Technician, so I delegated access to the IT Support shared mailbox.
+
+I configured:
+
+- **Full Access / Read and manage** — allowing Charlie to open and manage the shared mailbox.
+- **Send As** — allowing Charlie to send messages that appear to come directly from the IT Support mailbox.
+
+Access was limited to the IT support user rather than being provided to unrelated employees.
+
+![Shared mailbox delegation](screenshots/06-exchange-online/02-shared-mailbox-delegation.jpg)
+
+---
+
+#### Send As Testing
+
+After configuring the permissions, I signed in as Charlie and accessed the shared mailbox.
+
+I then sent a test email from the IT Support address to Alice Johnson.
+
+The message was successfully received with **IT Support** shown as the sender, confirming that the Send As delegation was working correctly.
+
+![Send As email test](screenshots/06-exchange-online/03-send-as-email-test.jpg)
+
+---
+
+#### Exchange Message Trace
+
+I used **Exchange Online Message Trace** to verify the delivery of the test email.
+
+The trace allowed me to check the sender, recipient, timestamp and delivery status. The test message showed a **Delivered** status, confirming that Exchange Online had successfully processed and delivered the message.
+
+![Exchange Message Trace](screenshots/06-exchange-online/04-message-trace-delivered.jpg)
+
+This exercise gave me practical experience with shared mailbox administration, mailbox delegation, Send As permissions and basic Exchange Online mail-flow troubleshooting.
