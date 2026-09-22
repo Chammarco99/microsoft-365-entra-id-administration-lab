@@ -109,3 +109,45 @@ This gave the support account administrative capabilities relevant to its job fu
 I also created an emergency access administrator account with the Global Administrator role to explore the concept of maintaining emergency administrative access.
 
 > **Security note:** In a production environment, emergency access accounts require additional planning, monitoring and protection. The account in this project was created only as part of the lab exercise.
+
+### 4. Multi-Factor Authentication and Conditional Access
+
+I configured Multi-Factor Authentication (MFA) using Microsoft Entra Conditional Access to strengthen authentication for standard users.
+
+I created the following Conditional Access policy:
+
+**Policy:** `CA001 - Require MFA for Standard Users`
+
+The policy targeted the standard lab users and required MFA when accessing Microsoft 365 resources.
+
+Before enforcing the policy, I configured it in **Report-only** mode. This allowed me to observe how the policy would affect user sign-ins before enabling it.
+
+During testing, the Conditional Access result showed that additional user action was required because the user had not yet satisfied the MFA requirement.
+
+![Conditional Access policy](screenshots/05-mfa-conditional-access/01-conditional-access-policy.jpg)
+
+---
+
+#### MFA Registration
+
+I registered Microsoft Authenticator as an authentication method for the test user.
+
+This provided a second authentication factor in addition to the user's password.
+
+![MFA authentication method](screenshots/05-mfa-conditional-access/02-mfa-authentication-method.jpg)
+
+---
+
+#### Conditional Access Testing
+
+After confirming the policy configuration and MFA registration, I enabled the Conditional Access policy and performed another user sign-in test.
+
+I then reviewed the Microsoft Entra sign-in logs to verify that the authentication requirement had been satisfied.
+
+The successful sign-in showed that Multi-Factor Authentication was required and that the MFA requirement had been successfully met.
+
+![Successful MFA sign-in](screenshots/05-mfa-conditional-access/03-conditional-access-signin-result.jpg)
+
+This exercise helped me understand the difference between simply enabling MFA and using Conditional Access to control when additional authentication requirements are applied.
+
+It also demonstrated the importance of testing Conditional Access policies before enforcement to reduce the risk of accidentally locking users or administrators out of an environment.
