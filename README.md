@@ -57,3 +57,55 @@ The environment separates identity and access management from productivity servi
 | Emergency Access Admin | Emergency administration | Global Administrator |
 
 Charlie was deliberately assigned the **Helpdesk Administrator** role instead of Global Administrator to demonstrate the **Principle of Least Privilege**.
+
+## Implementation
+
+### 1. User and Licence Management
+
+I started by creating user accounts in Microsoft Entra ID to represent employees working in different departments at MarcoTech LTD.
+
+The test users included:
+
+- **Alice Johnson** — Finance
+- **Bob Smith** — Human Resources
+- **Charlie Brown** — IT Support
+
+I configured the user accounts with appropriate profile information and assigned Microsoft 365 Business Premium licences where required. This helped me understand the relationship between an Entra ID identity and the Microsoft 365 services provided through licensing.
+
+![Created users](screenshots/02-user-management/02-created-users.jpg)
+
+![Microsoft 365 licence assignment](screenshots/02-user-management/03-alice-license-assignment.jpg)
+
+---
+
+### 2. Security Groups and Access Management
+
+I created departmental security groups to organise users and manage access based on their job function.
+
+The groups used in the lab were:
+
+- `SG-Finance-Users`
+- `SG-HR-Users`
+- `SG-IT-Users`
+
+For example, Alice was added to `SG-Finance-Users` because she was acting as the Finance user in the lab.
+
+Using security groups provides a more manageable approach to access control than assigning permissions individually to every employee.
+
+![Finance security group membership](screenshots/03-groups-access/01-finance-security-group-membership.jpg)
+
+---
+
+### 3. Role-Based Access Control (RBAC)
+
+I used Microsoft Entra ID roles to practise the Principle of Least Privilege.
+
+Charlie was the IT Support Technician in the lab. Instead of assigning him the highly privileged Global Administrator role, I assigned him the **Helpdesk Administrator** role.
+
+This gave the support account administrative capabilities relevant to its job function without providing unrestricted control of the Microsoft 365 environment.
+
+![Helpdesk Administrator role](screenshots/04-rbac/01-charlie-helpdesk-administrator.jpg)
+
+I also created an emergency access administrator account with the Global Administrator role to explore the concept of maintaining emergency administrative access.
+
+> **Security note:** In a production environment, emergency access accounts require additional planning, monitoring and protection. The account in this project was created only as part of the lab exercise.
