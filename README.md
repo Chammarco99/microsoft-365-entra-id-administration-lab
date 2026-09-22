@@ -204,3 +204,41 @@ The trace allowed me to check the sender, recipient, timestamp and delivery stat
 ![Exchange Message Trace](screenshots/06-exchange-online/04-message-trace-delivered.jpg)
 
 This exercise gave me practical experience with shared mailbox administration, mailbox delegation, Send As permissions and basic Exchange Online mail-flow troubleshooting.
+
+### 6. Identity and Sign-in Troubleshooting
+
+To practise identity troubleshooting, I simulated a scenario where Bob Smith from HR was unable to sign in to Microsoft 365.
+
+Rather than immediately resetting the account, I used **Microsoft Entra sign-in logs** to investigate the authentication failure.
+
+#### Investigating the Failed Sign-in
+
+I located Bob's failed interactive sign-in event and reviewed the authentication details.
+
+The sign-in log showed:
+
+- **Status:** Failure
+- **Error code:** `50126`
+- **Failure reason:** Invalid username or password
+
+This indicated that the authentication problem was related to the user's credentials rather than the Conditional Access policy.
+
+![Failed sign-in investigation](screenshots/07-troubleshooting/01-bob-failed-signin-invalid-credentials.jpg)
+
+---
+
+#### Remediation and Verification
+
+After identifying the cause, I performed an administrator password reset and tested the account again using the new credentials.
+
+Because Bob was included in the Conditional Access policy, MFA requirements also applied during the authentication process.
+
+I then returned to the Entra sign-in logs and verified that the new authentication attempt completed successfully.
+
+![Successful MFA sign-in](screenshots/07-troubleshooting/02-bob-successful-mfa-signin.jpg)
+
+The troubleshooting process followed this workflow:
+
+**User reports issue → Review sign-in logs → Identify failure reason → Remediate the account → Test authentication → Verify successful sign-in**
+
+This exercise helped me understand why sign-in logs are important when troubleshooting Microsoft 365 authentication problems. Instead of assuming the cause, I used the available log information and error code to identify the issue before applying a fix.
