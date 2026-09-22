@@ -294,3 +294,77 @@ The offboarding workflow used in the lab was:
 This exercise demonstrated the importance of removing both authentication and authorization when an employee leaves an organisation.
 
 > **Production consideration:** A real offboarding process may also require mailbox and OneDrive data preservation, ownership transfer, retention policies, device management, legal requirements, application access removal and other organisation-specific controls. This lab focused primarily on Microsoft 365 identity and access administration.
+
+## Security Lessons Learned
+
+Building this lab helped me understand that Microsoft 365 administration is not only about creating users and assigning licences. Identity security and access control are a major part of administering a cloud environment.
+
+Some of the main lessons I took from the project were:
+
+- **Least privilege:** Administrative users should receive only the permissions required for their responsibilities. This was demonstrated by assigning Charlie the Helpdesk Administrator role rather than Global Administrator.
+- **MFA:** Passwords alone should not be relied upon to protect user accounts. MFA provides an additional layer of authentication.
+- **Conditional Access:** Access policies can be used to enforce security requirements based on defined conditions. Testing policies in Report-only mode before enforcement can help identify potential problems.
+- **Group-based access:** Security groups provide a more scalable way to organise users and manage access than assigning permissions individually.
+- **Logging and monitoring:** Entra sign-in logs and Exchange Message Trace provide valuable evidence when investigating authentication and email-delivery issues.
+- **User lifecycle management:** Access needs to be managed throughout the lifecycle of an account, from initial provisioning through to offboarding.
+- **Verification:** A configuration should be tested after implementation rather than assuming it works as expected.
+
+---
+
+## Skills Demonstrated
+
+Through this project I gained hands-on experience with:
+
+- Microsoft 365 administration
+- Microsoft Entra ID
+- Identity and Access Management (IAM)
+- User provisioning and deprovisioning
+- Microsoft 365 licence management
+- Security group administration
+- Role-Based Access Control (RBAC)
+- Principle of Least Privilege
+- Multi-Factor Authentication (MFA)
+- Conditional Access
+- Microsoft Authenticator
+- Exchange Online administration
+- Shared mailbox management
+- Full Access and Send As delegation
+- Exchange Message Trace
+- Entra ID sign-in logs
+- Authentication troubleshooting
+- User offboarding and access revocation
+
+---
+
+## Project Outcome
+
+By completing this lab, I gained practical experience administering a Microsoft 365 environment rather than relying only on theoretical knowledge.
+
+I worked through the lifecycle of cloud identities by creating users, assigning licences and group memberships, applying administrative roles, enforcing MFA through Conditional Access, administering Exchange Online, troubleshooting authentication failures, and finally removing access during an employee offboarding scenario.
+
+One of the most useful parts of the project was learning to verify configurations using sign-in logs, authentication results and message tracing instead of assuming that a configuration had worked.
+
+This lab also helped me understand how Microsoft Entra ID and Microsoft 365 work together: Entra ID manages identities, authentication and access, while Microsoft 365 services such as Exchange Online provide the resources those identities access.
+
+---
+
+## Future Improvements
+
+If I extend this lab in the future, I would like to explore:
+
+- Microsoft Intune device management
+- Entra ID Privileged Identity Management (PIM)
+- Additional Conditional Access scenarios
+- Microsoft Defender for Office 365
+- Microsoft Defender for Endpoint
+- Self-Service Password Reset (SSPR)
+- Dynamic group membership
+- Access Reviews
+- Hybrid identity with Windows Server Active Directory
+- PowerShell and Microsoft Graph automation
+
+---
+
+## Disclaimer
+
+This project was completed in a personal lab environment using fictional users and a fictional organisation. It was created for educational and portfolio purposes and does not represent a production deployment.
