@@ -242,3 +242,55 @@ The troubleshooting process followed this workflow:
 **User reports issue → Review sign-in logs → Identify failure reason → Remediate the account → Test authentication → Verify successful sign-in**
 
 This exercise helped me understand why sign-in logs are important when troubleshooting Microsoft 365 authentication problems. Instead of assuming the cause, I used the available log information and error code to identify the issue before applying a fix.
+
+### 7. User Offboarding and Access Revocation
+
+To practise the employee leaver process, I simulated the offboarding of Alice Johnson from the Finance department.
+
+The objective was to ensure that the user could no longer access company resources and that access and licensing assigned during employment were removed.
+
+#### Blocking User Sign-in
+
+I first blocked Alice from signing in to Microsoft 365.
+
+This prevents new authentication attempts while keeping the account available for administrative tasks that may still be required during the offboarding process.
+
+![Alice sign-in blocked](screenshots/08-user-offboarding/01-alice-signin-blocked.jpg)
+
+---
+
+#### Revoking Sessions and Removing Access
+
+I revoked the user's existing sign-in sessions so that previously authenticated sessions would be required to authenticate again.
+
+I also removed Alice from the Finance security group, removing the group-based access associated with her Finance role.
+
+![Finance access removed](screenshots/08-user-offboarding/02-alice-finance-access-removed.jpg)
+
+---
+
+#### Licence Removal
+
+After removing access, I removed the Microsoft 365 Business Premium licence assigned to Alice.
+
+This simulated reclaiming a licence that could later be assigned to another employee.
+
+![Microsoft 365 licence removed](screenshots/08-user-offboarding/03-alice-license-removed.jpg)
+
+---
+
+#### Offboarding Verification
+
+Finally, I attempted to authenticate using Alice's account after sign-in had been blocked.
+
+The authentication attempt failed, and I reviewed the event in the Microsoft Entra sign-in logs to verify that access had been denied.
+
+![Blocked sign-in verification](screenshots/08-user-offboarding/04-alice-blocked-signin-verification.jpg)
+
+The offboarding workflow used in the lab was:
+
+**Block sign-in → Revoke sessions → Remove group access → Remove licence → Test access → Verify denial**
+
+This exercise demonstrated the importance of removing both authentication and authorization when an employee leaves an organisation.
+
+> **Production consideration:** A real offboarding process may also require mailbox and OneDrive data preservation, ownership transfer, retention policies, device management, legal requirements, application access removal and other organisation-specific controls. This lab focused primarily on Microsoft 365 identity and access administration.
